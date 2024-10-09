@@ -26,8 +26,6 @@ public class ProductServiceTest {
 		
 		int productId=5;
 		
-		given(productService.getProduct(productId)).wil
-		
 	}
 
 }
