@@ -29,10 +29,7 @@ public class ProductServiceTest {
 		int productId=5;
 		
 		when(productService.getProduct(productId)).thenReturn(product);
-		
 		assertEquals(5, productService.getProduct(productId).getProductId());
-		
-		
 	}
 
 }
