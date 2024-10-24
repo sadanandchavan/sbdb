@@ -1,16 +1,19 @@
 package com.example.sbdb;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.sbdb.dto.Product;
 import com.example.sbdb.service.ProductService;
 
-import net.bytebuddy.NamingStrategy.Suffixing.BaseNameResolver.ForGivenType;
-
-@ExtendWith(MockitoExtension.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ProductServiceTest {
 	
 	
@@ -23,10 +26,12 @@ public class ProductServiceTest {
 		product.setProductId(5);
 		product.setProductName("APPLe");
 		product.setQuantity("10");
-		
 		int productId=5;
 		
-		given(productService.getProduct(productId)).wil
+		when(productService.getProduct(productId)).thenReturn(product);
+		
+		assertEquals(5, productService.getProduct(productId).getProductId());
+		
 		
 	}
 
